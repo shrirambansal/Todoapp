@@ -1,0 +1,57 @@
+
+{% extends 'base.html' %}
+
+{% block body %}
+        
+      
+
+    <h1>Todo</h1>
+    <div class="container-fluid">
+        <form sction = "/" method="POST"> <!-- form is used to take input from the user -->
+            <div class="mb-3">
+              <label for="title" class="form-label">Title</label>
+              <input type="text" class="form-control" name = 'title' id="title" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+              <label for="desc" class="form-label">Description</label>
+              <input type="text" class="form-control" name = "desc" id="desc">
+            </div>
+            <button type="submit" class="btn btn-dark ">Submit</button>
+          </form>
+    </div>
+
+    <h2>Your Todo</h2>
+    
+            {% if allTodo|length == 0 %}  <!-- if is used to check the length of the allTodo list -->
+            <tr>  
+                <div class="alert alert-dark" style="text-align: center;" role="alert">
+                    No Todo Available ! Add Some Todo !
+                  </div>
+            </tr>
+            {% else %}
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">S no.</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+        {% for todo in allTodo %}  <!-- for is used to loop through the allTodo list -->
+          <tr>
+            <th scope="row">{{loop.index}}</th>    <!-- loop.index is used to get the index of the loop-->
+            <td>{{todo.title}}</td>   <!-- todo.title is used to get the title of the todo -->
+            <td>{{todo.desc}}</td>    <!-- todo.desc is used to get the description of the todo -->
+            <td>
+                <a href="/delete/{{todo.id}}" type="button" class="btn btn-dark btn-sm">Delete</button>
+                <a href="/update/{{todo.id}}" type="button" class="btn btn-dark btn-sm">Update</button>
+        </td>
+        </tr>
+    </tbody>
+</table>
+        {% endfor %}   <!-- endfor is used to end the loop -->
+        {% endif %}  <!-- endif is used to end the if condition -->
+
+{% endblock body %} 

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    
+    <h2>Update Todo</h2>
+    <div class="container-fluid">
+        <form sction = "/update/{{todo.id}}" method="POST"> <!-- form is used to take input from the user -->
+            <div class="mb-3">
+              <label for="title" class="form-label">Title</label>
+              <input type="text" class="form-control" name = 'title' value="{{todo.title}}" id="title" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+              <label for="desc" class="form-label">Description</label>
+              <input type="text" class="form-control" name = "desc" value="{{todo.desc}}" id="desc">
+            </div>
+            <button type="submit" class="btn btn-dark ">Update</button>
+          </form>
+    </div>
+
+{% endblock body %}
