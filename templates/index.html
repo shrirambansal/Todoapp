@@ -5,8 +5,8 @@
         
       
 
-    <h1>Todo</h1>
-    <div class="container-fluid">
+    
+    <div class="container">
         <form sction = "/" method="POST"> <!-- form is used to take input from the user -->
             <div class="mb-3">
               <label for="title" class="form-label">Title</label>
@@ -18,7 +18,7 @@
             </div>
             <button type="submit" class="btn btn-dark ">Submit</button>
           </form>
-    </div>
+    
 
     <h2>Your Todo</h2>
     
@@ -49,9 +49,10 @@
                 <a href="/update/{{todo.id}}" type="button" class="btn btn-dark btn-sm">Update</button>
         </td>
         </tr>
-    </tbody>
-</table>
+    
         {% endfor %}   <!-- endfor is used to end the loop -->
+      </tbody>
+    </table>
         {% endif %}  <!-- endif is used to end the if condition -->
-
+      </div>
 {% endblock body %} 
